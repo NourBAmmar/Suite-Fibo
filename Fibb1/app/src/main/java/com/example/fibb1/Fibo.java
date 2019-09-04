@@ -19,11 +19,13 @@ public class Fibo {
             U1=1;
             U0=1;
         }
+        else if (U0==4||U0<0)
+            U1=4;
         else {
             long x =U1;
             U1 = U0 + U1;
             U0 = x;
-        }
+            }
         return U1;
     }
 }

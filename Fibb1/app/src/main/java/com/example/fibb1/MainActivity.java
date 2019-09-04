@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.AbsListView;
 import java.util.ArrayList;
 import java.util.List;
+import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,9 +63,15 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     for (int i=1;i<5;i++)
                     {
-                        U.add(f.getU1());
+                       if (f.getU1()!=4)
+                       {U.add(f.getU1());
                         f.Next();
                         adapter.notifyDataSetChanged();
+                       }
+                        else
+                       {
+                           Toast.makeText(getApplicationContext(),"OverFlow! Ce terme dépasse la capacite d un LONG ",Toast.LENGTH_SHORT).show();
+                       }
                     }
                 }
             }, 500);
